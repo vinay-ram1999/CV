@@ -1,0 +1,45 @@
+name: Compile LaTeX src
+
+# run when a commit is pushed to "source" branch
+on:
+  push:
+    branches:
+    - '*'
+  workflow_dispatch:
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+
+    steps:
+    # checkout to the commit that has been pushed
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    # Compile the LaTeX source code to generate pdf
+    - name: Compile LaTeX Resume
+      uses: dante-ev/latex-action@latest
+      with:
+        working_directory: ./resume/
+        root_file: ./resume.tex
+        compiler: pdflatex
+        args: -interaction=nonstopmode -shell-escape
+    
+    - name: re-Compile LaTeX Resume # just to make sure no compilation errors
+      uses: dante-ev/latex-action@latest
+      with:
+        working_directory: ./resume/
+        root_file: ./resume.tex
+        compiler: pdflatex
+        args: -interaction=nonstopmode -shell-escape
+
+    - uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: Compiled the resume
+
+  
