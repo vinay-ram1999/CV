@@ -41,8 +41,10 @@ jobs:
         compiler: pdflatex
         args: -interaction=nonstopmode -shell-escape
 
-    - uses: EndBug/add-and-commit@v9
+    - name: GitHub Push
+      uses: ad-m/github-push-action@v0.8.0
       with:
-        default_author: github_actions
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+    
 
   
