@@ -2,9 +2,6 @@ name: Compile LaTeX src
 
 # run when a commit is pushed to "source" branch
 on:
-  push:
-    branches:
-    - '*'
   workflow_dispatch:
 
 jobs:
