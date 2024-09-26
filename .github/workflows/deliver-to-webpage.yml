@@ -19,7 +19,7 @@ jobs:
     - name: Deliver LaTeX src files to resumeBuilder
       uses: nkoppel/push-files-to-another-repository@v1.1.3
       env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB_PDF }}
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
         source-files: 'resume/resume.pdf'
         destination-username: 'vinay-ram1999'
