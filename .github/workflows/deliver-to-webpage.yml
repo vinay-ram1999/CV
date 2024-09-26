@@ -15,11 +15,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     
-        # Deliver to resumeBuilder source (https://github.com/marketplace/actions/copy-files-to-another-repository)
+    # Deliver to resumeBuilder source (https://github.com/marketplace/actions/copy-files-to-another-repository)
+    - run: git config --global url.https://$API_TOKEN_GITHUB_PDF@github.com/.insteadOf https://github.com/
+
     - name: Deliver LaTeX src files to resumeBuilder
       uses: nkoppel/push-files-to-another-repository@v1.1.3
       env:
-        API_TOKEN_GITHUB_PDF: ${{ secrets.API_TOKEN_GITHUB_PDF }}
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB_PDF }}
       with:
         source-files: 'resume/resume.pdf'
         destination-username: 'vinay-ram1999'
