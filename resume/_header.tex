@@ -1,0 +1,63 @@
+%====================
+% Header: Contact
+%====================
+%\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome}
+\usepackage{orcidlink}
+\usepackage{lastpage}
+
+\newcommand{\phoneview}{\faPhone\ \phone}
+\newcommand{\cityview}{\faMapMarker\ \city}
+\newcommand{\mailview}{\faAt\ \href{mailto:\email}{\email}}
+\newcommand{\githubview}{\faGithub\ \href{https://github.com/\github}{github.com/\github}}
+\newcommand{\linkedinview}{\faLinkedin\ \href{https://www.linkedin.com/in/\LinkedIn}{linkedin.com/in/\LinkedIn}}
+\newcommand{\webview}{\faGlobe\ \href{https://web.njit.edu/~vg472}{\website}}
+\newcommand{\orcidview}{\orcidlink{\orcid}\ \href{https://orcid.org/\orcid}{orcid.org/\orcid}}
+
+
+\usepackage{fancyhdr}
+
+%\pagestyle{empty}
+
+\fancypagestyle{firstpage}{
+
+\setlength{\headheight}{50pt}
+\setlength{\headsep}{1pt}
+\setlength{\textheight}{7in}
+\setlength{\textwidth}{7.5in}
+%\setlength{\footskip}{15pt}
+
+\fancyhf{}
+
+\lhead{
+		%\cityview \\ % city
+		\phoneview \\ % PHONE
+		\webview \\
+		\mailview % EMAIL
+	}
+
+\chead{
+	    \Huge \textsc \name \\ % feel free to adjust vspace to 0
+	    \large \textsc \role
+	    }
+
+\rhead{
+		\githubview \\
+		\linkedinview \\
+		\orcidview
+	    }
+
+%\renewcommand{\footnotesize}{\fontsize{7pt}{11pt}\selectfont}
+%\renewcommand{\footnoterule}{\rule{0.3\linewidth}{0.5pt}}
+
+%\lfoot{\today}
+
+%\cfoot{\name}
+%\cfoot{\thepage}
+%\rfoot{\thepage \hspace{1pt} / \pageref*{LastPage}}
+
+\renewcommand{\headrulewidth}{1pt}% 1pt header rule
+\renewcommand{\headruleskip}{-0.6em}% gap between header and header line
+\renewcommand{\headrule}{\hbox to\headwidth{\color{highlight}\leaders\hrule height \headrulewidth \hfill}}
+}
