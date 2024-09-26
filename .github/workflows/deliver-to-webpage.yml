@@ -27,4 +27,3 @@ jobs:
         destination-branch: 'main'
         destination-directory: 'static/files/'
         commit-email: 'vinayramgazula@gmail.com'
-      secrets: inherit # <= this one
